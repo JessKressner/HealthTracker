@@ -1,0 +1,116 @@
+/* MoodTrendLink.css */
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #c9e0f2;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+  }
+  
+  .moodtrendlink-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+  }
+  
+  h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 700;
+    color: #468ab0;
+  }
+  
+  p {
+    font-size: 1.2em;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #5b7f94;
+  }
+  
+  .card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+  }
+  
+  .chart-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .chart-card h2 {
+    font-size: 1.75em;
+    margin-bottom: 15px;
+    color: #599bc1;
+    font-weight: 600;
+  }
+  
+  .chart-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .chart-container {
+    width: 100%;
+    max-width: 500px;
+    height: 400px;
+  }
+  
+  /* Update chart colors to match new theme */
+  .google-visualization-table,
+  .chart-container {
+    --chart-color-primary: #599bc1;
+    --chart-color-secondary: #8fbfda;
+    --chart-color-tertiary: #b3d9ea;
+  }
+  
+  .back-button {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #599bc1;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1em;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    margin: 40px auto;
+  }
+  
+  .back-button:hover {
+    background-color: #0f6996;
+  }
+  
+  /* Additional Styling */
+  .chart-card {
+    position: relative;
+  }
+  
+  .chart-card .chart-container {
+    width: 100%;
+    height: auto;
+  }
+  
+  h1, h2 {
+    color: #599bc1;
+  }
+  
+  @media (max-width: 768px) {
+    .card-container {
+      grid-template-columns: 1fr;
+    }
+  }
+  

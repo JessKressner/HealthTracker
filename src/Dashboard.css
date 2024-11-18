@@ -1,0 +1,249 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f5f7fa;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #374785;
+  font-weight: bold;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+}
+
+th {
+  background-color: #374785;
+  color: #fff;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tr:nth-child(odd) {
+  background-color: #fff;
+}
+
+input[type="date"], textarea {
+  border: 1px solid #ddd;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 5px;
+  transition: border 0.3s;
+}
+
+input[type="date"]:focus, textarea:focus {
+  border-color: #374785;
+}
+
+/* Dashboard */
+.dashboard-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 40px;
+  max-width: 1400px; 
+  margin: 0 auto;
+}
+
+.sidebar {
+  flex: 1; 
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.middle {
+  flex: 2; 
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.sidebar-right {
+  flex: 1; 
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sidebar:hover,
+.sidebar-right:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  .dashboard-container {
+    flex-direction: column;
+  }
+
+  .sidebar,
+  .middle,
+  .sidebar-right {
+    flex: 1;
+    margin-bottom: 20px;
+  }
+}
+
+
+/* mood trend */
+.mood-trend {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.mood-bars {
+  display: flex;
+  gap: 10px;
+}
+
+.mood-bar {
+  flex: 1;
+  padding: 10px;
+  color: white;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.date {
+  font-size: 12px;
+  color: #fff;
+}
+
+.score {
+  font-weight: bold;
+}
+
+
+/* Logs */
+.log-section {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.log-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+
+.log-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.log-table th, .log-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.log-table th {
+  background-color: #66a3c6;
+  color: white;
+}
+
+.log-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* diet log */
+.meal-input, .activity-input {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.meal-input input, .activity-input input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.meal-input button, .activity-input button {
+  padding: 10px 20px;
+  background-color: #66a3c6;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.meal-input button:hover, .activity-input button:hover {
+  background-color: #1f5d81;
+}
+
+
+/* image */
+.health-tips-image {
+  padding: 5px;
+  width: 100%;
+}
+
+.health-ai {
+  padding: 10px;
+  width: 100%;
+}
+
+/* Buttons */
+button {
+padding: 15px 20px;
+background-color: #c4dbee;
+color: white;
+border: none;
+border-radius: 10px;
+cursor: pointer;
+transition: background-color 0.3s ease;
+}
+
+button:hover {
+background-color: #2588c5;
+}
+
+/* Form Elements */
+input, textarea {
+padding: 10px;
+border: 1px solid #ddd;
+border-radius: 8px;
+width: 100%;
+box-sizing: border-box;
+transition: border 0.3s ease;
+}
+
+input:focus, textarea:focus {
+border-color: #3490c5;
+outline: none;
+}

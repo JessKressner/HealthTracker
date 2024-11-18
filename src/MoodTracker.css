@@ -1,0 +1,89 @@
+/* MoodTracker.css */
+.mood-tracker-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  
+  .card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 40px;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .mood-tracker-container h3 {
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 25px;
+  }
+  
+  .mood-selection-section {
+    margin-bottom: 40px;
+  }
+  
+  .mood-options {
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+    margin-top: 15px;
+  }
+  
+  .mood-button {
+    background: none;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
+  }
+  
+  .mood-icon {
+    font-size: 28px;
+  }
+  
+  .mood-button:hover {
+    border-color: #cccccc;
+    transform: scale(1.1);
+  }
+  
+  .mood-button.selected {
+    background-color: #1976d2;
+    color: white;
+  }
+  
+  .energy-level-section,
+  .overwhelmed-level-section {
+    margin-bottom: 40px;
+  }
+  
+  .energy-slider,
+  .overwhelmed-slider {
+    width: 100%;
+    margin-top: 15px;
+    cursor: pointer;
+  }
+  
+  .slider-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 8px;
+  }
+  
+  h4 {
+    color: #444;
+    font-weight: 500;
+    margin-bottom: 15px;
+  }
+  

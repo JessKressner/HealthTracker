@@ -1,0 +1,70 @@
+/* MoodTrend.css */
+
+.mood-trend-container {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 40px auto;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .mood-trend-container:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  }
+  
+  .dashboard-title {
+    font-size: 2rem;
+    color: #599bc1;
+    text-align: center;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  
+  .line-chart-section,
+  .pie-chart-section {
+    margin-bottom: 40px;
+    width: 100%;
+    max-width: 700px;
+  }
+  
+  .chart-container {
+    width: 100%;
+    height: 400px;
+    background-color: #f9fbfd;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .chart-container:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  }
+  
+  .analysis-button {
+    padding: 15px 30px;
+    background-color: #599bc1;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1em;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .analysis-button:hover {
+    background-color: #4a8cb0;
+    transform: translateY(-3px);
+  }
