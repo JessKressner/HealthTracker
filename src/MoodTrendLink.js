@@ -88,6 +88,40 @@ function MoodTrendLink() {
             options={{ title: 'Fitness Distribution Over Time' }}
           />
         </div>
+
+        <div className="chart-card">
+          <h2>Sleep Trend</h2>
+          <Chart
+          chartType="LineChart"
+          width="100%"
+          height="300px"
+          data={[
+            ['Date', 'Hours'],
+            ['2024-11-01', 8],
+            ['2024-11-02', 7],
+            ['2024-11-03', 6],
+            ['2024-11-04', 8],
+            ['2024-11-05', 10],
+          ]}
+          options={{title: 'Sleep Distribution'}}
+          />
+        </div>
+
+        <div className="chart-card">
+          <h2>Beverage Trend</h2>
+          <Chart
+          chartType="PieChart"
+          width="100%"
+          height="300px"
+          data={[['Name', 'Ounces'],
+            ['Water', 64],
+            ['Coffee', 16],
+            ['Soda', 8],
+            ['Juice', 20],
+            ['Water', 44]]}
+          options={{title: 'Beverage Distribution'}}
+          />
+        </div>
       </div>
 
       {/* Button to navigate back to the Dashboard */}

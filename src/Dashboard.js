@@ -4,6 +4,8 @@ import MoodTracker from './MoodTracker';
 import MoodTrend from './MoodTrend';
 import DietLog from './DietLog';
 import FitnessLog from './FitnessLog';
+import SleepTracker from './SleepTracker';
+import BeverageTracker from './BeverageTracker';
 import './Dashboard.css';
 
 function Dashboard() {
@@ -26,6 +28,16 @@ function Dashboard() {
     { activity: 'Cycling', duration: '20 mins', caloriesBurned: 150 },
   ]);
 
+  // Sleep state
+  const [sleep, setSleep] = useState([
+    {timeFallAsleep:'', timeWakeUp:'', hours:''}
+  ]);
+
+  // Beverage state
+  const [beverage, setBeverage] = useState([
+    {name:'', ounces:''}
+  ]);
+
   // Function to add a new meal
   const addMeal = (newMeal) => {
     setMeals([...meals, newMeal]);
@@ -41,6 +53,16 @@ function Dashboard() {
     setFitnessActivities([...fitnessActivities, newActivity]);
   };
 
+  // Function to add sleep
+  const addSleep = (newSleep) => {
+    setSleep([...sleep, newSleep]);
+  };
+
+  // Function to add beverage
+  const addBeverage = (newBeverage) => {
+    setBeverage([...beverage, newBeverage]);
+  }
+
   // Get the latest habit from fitness activities
   const latestHabit = fitnessActivities[fitnessActivities.length - 1]?.activity || '';
 
@@ -50,6 +72,7 @@ function Dashboard() {
       <aside className="sidebar">
         <DatePicker />
         <MoodTrend />
+        <SleepTracker sleep={sleep} setSleep={setSleep} addSleep={addSleep} />
       </aside>
 
       {/* Middle Section */}
@@ -59,6 +82,9 @@ function Dashboard() {
 
         {/* Pass fitness activities and addFitnessActivity function to FitnessLog */}
         <FitnessLog fitnessActivities={fitnessActivities} addFitnessActivity={addFitnessActivity} />
+
+        {/* addBeverage function */}
+        <BeverageTracker beverage={beverage} setBeverage={setBeverage} addBeverage={addBeverage} />
       </main>
 
       {/* Right Section */}

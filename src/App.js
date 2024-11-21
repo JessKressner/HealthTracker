@@ -8,6 +8,8 @@ import FitnessLog from './FitnessLog';
 import MoodTracker from './MoodTracker';
 import MoodTrend from './MoodTrend';
 import MoodTrendLink from './MoodTrendLink';
+import SleepTracker from './SleepTracker';
+import BeverageTracker from './BeverageTracker';
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
           <Route path="fitnesslog" element={<FitnessLog />} />
           <Route path="moodtracker" element={<MoodTracker />} />
           <Route path="moodtrend" element={<MoodTrend />} />
+          <Route path="sleeptracker" element={<SleepTracker />} />
+          <Route path="beveragetracker" element={<BeverageTracker />} />
         </Route>
          {/* Route to Detailed Mood Trend Analysis Page */}
          <Route path="/moodtrendlink" element={<MoodTrendLink />} />
