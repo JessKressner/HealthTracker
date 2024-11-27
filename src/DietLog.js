@@ -1,15 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-function DietLog() {
-  const [meals, setMeals] = useState([
-    { name: 'Oatmeal', calories: 271, protein: 7, carbs: 55, fats: 4 },
-    { name: 'Banana', calories: 105, protein: 1, carbs: 27, fats: 0.3 },
-  ]);
+function DietLog({onDietDataChange = () => {}}) {
+  const [meals, setMeals] = useState(() => {
+    const savedMeals = localStorage.getItem('mealData');
+    return savedMeals ? JSON.parse(savedMeals) : [];
+  });
 
   const [newMeal, setNewMeal] = useState({ name: '', calories: '', protein: '' });
   const [loading, setLoading] = useState(false);
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setNewMeal({
@@ -56,11 +55,26 @@ function DietLog() {
 
   const handleAddMeal = () => {
     if (newMeal.name && newMeal.calories && newMeal.protein) {
-      setMeals([...meals, newMeal]);
+      const updatedMeal = [...meals, newMeal];
+      setMeals(updatedMeal);
+      localStorage.setItem('mealData', JSON.stringify(updatedMeal));
       setNewMeal({ name: '', calories: '', protein: '' });
+      onDietDataChange(updatedMeal);
     } else {
       alert("Please fill in all fields");
     }
+  };
+
+  useEffect(() => {
+    onDietDataChange(meals);
+  }, [meals, onDietDataChange]);
+  
+
+  const handleDeleteMeal = (indexToDelete) => {
+    const updatedMeal = meals.filter((_, index) => index !== indexToDelete);
+    setMeals(updatedMeal);
+    localStorage.setItem('mealData', JSON.stringify(updatedMeal));
+    onDietDataChange(updatedMeal);
   };
 
   return (
@@ -74,6 +88,7 @@ function DietLog() {
             <th>Food</th>
             <th>Calories</th>
             <th>Protein (g)</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
@@ -82,6 +97,11 @@ function DietLog() {
               <td>{meal.name}</td>
               <td>{meal.calories}</td>
               <td>{meal.protein}</td>
+              <td>
+                <button onClick={() => handleDeleteMeal(index)}>
+                  Delete
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>

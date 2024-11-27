@@ -1,16 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-function FitnessLog({ fitnessActivities, addFitnessActivity }) {
-  const [newActivity, setNewActivity] = useState({ activity: '', duration: '', caloriesBurned: '' });
+function FitnessLog({onFitnessDataChange = () => {}}) {
+  const [activity, setActivity] = useState(() => {
+    const savedActivity = localStorage.getItem('fitnessData');
+  return savedActivity ? JSON.parse(savedActivity) : [];
+  });
 
+  const [newActivity, setNewActivity] = useState({activity: '', duration: '', caloriesBurned: '' })
   const handleChange = (e) => {
     const { name, value } = e.target;
     setNewActivity({ ...newActivity, [name]: value });
   };
 
   const handleAddActivity = () => {
-    addFitnessActivity(newActivity);
+    const updatedActivity = [...activity, newActivity];
+    setActivity(updatedActivity);
+    localStorage.setItem('fitnessData', JSON.stringify(updatedActivity));
     setNewActivity({ activity: '', duration: '', caloriesBurned: '' });
+    onFitnessDataChange(updatedActivity);
+  };
+
+  useEffect(() => {
+    onFitnessDataChange(activity);
+  }, [activity, onFitnessDataChange]);
+
+  const handleDeleteActivity = (indexToDelete) => {
+    const updatedActivity = activity.filter((_, index) => index != indexToDelete);
+    setActivity(updatedActivity);
+    localStorage.setItem('fitnessData', JSON.stringify(updatedActivity));
+    onFitnessDataChange(updatedActivity);
   };
 
   return (
@@ -22,14 +40,19 @@ function FitnessLog({ fitnessActivities, addFitnessActivity }) {
             <th>Activity</th>
             <th>Duration</th>
             <th>Calories Burned</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
-          {fitnessActivities.map((activity, index) => (
+          {activity.map((activity, index) => (
             <tr key={index}>
               <td>{activity.activity}</td>
               <td>{activity.duration}</td>
               <td>{activity.caloriesBurned}</td>
+              <td>
+                <button onClick={() => handleDeleteActivity(index)}>
+                  Delete</button>
+              </td>
             </tr>
           ))}
         </tbody>

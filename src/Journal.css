@@ -1,0 +1,125 @@
+.journal-container {
+    display: flex; /* Activate flexbox to align child elements */
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center the content vertically */
+    flex-direction: column; /* Stack items vertically */
+    min-height: 100vh; /* Full viewport height */
+    background-color: #fff; /* White backgroud */
+    padding: 20px; /* Adds padding around the container */
+    margin-bottom: 20px; /* Adds space below the container */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transition for hover effects */
+}
+
+/* Hover effect for the journal container */
+.journal-container:hover {
+    transform: translateY(-5px); /* Moves the container slightly upwards */
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15); /* Increases shadow depth on hover */
+}
+
+/* Styles for the card component */
+.card {
+    background: #ffffff; /* White background */
+    border-radius: 16px; /* Rounded Corners */
+    padding: 40px; /* Adds internal padding inside the card */
+    max-width: 600px; /* Limits the maximum width of the card */
+    width: 100%; /* Full width for smaller screens */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    text-align: center; /* Center text within the card */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition on hover */
+}
+
+/* Hover effect for the card */
+.card:hover {
+    transform: translateY(-5px); /* Moves the card slightly upwards */
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15); /* Increases shadow depth on hover */
+}
+
+/* Styles for the heading inside the journal container */
+.journal-container h2 {
+    color: #1f5d81; /* Dark blue color  */
+    font-size: 30px; /* Set font size */
+    font-weight: 600; /* Make the font bold */
+    margin-bottom: 25px; /* Adds space below the heading */
+}
+
+/* Styles for the textarea input field */
+textarea {
+    width: 100%; /* Set to full width */
+    height: 100px; /* Set fixed height */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 10px; /* Rounded corners */
+    padding: 10px; /* Internal padding */
+    font-size: 1rem; /* Standard font size */
+    margin-bottom: 20px; /* Adds space below */
+    resize: none; /* Prevent resizing */
+}
+
+/* Styles for the save entry button */
+.save-entry {
+    margin-top: 20px; /* Space above the button */
+    padding: 20px 25px; /* Internal padding */
+    background-color: #66a3c6; /* Light blue background color */
+    color: white; /* White text color */
+    border: none; /* Remove default button border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor when hovered */
+}
+
+/* Hover effect for the save entry button */
+.save-entry:hover {
+    background-color: #1f5d81; /* Darker blue background on hover */
+}
+
+/* Styles for the list of journal entries */
+.journal-entries {
+    margin-top: 30px; /* Space above the list of entries */
+    list-style: none; /* Remove default list styling */
+    padding: 0; /* Remove padding */
+}
+
+/* Styles for each journal entry list item */
+.journal-entries li {
+    background: #ffffff; /* White background */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 10px; /* Rounded corners */
+    padding: 15px; /* Internal padding */
+    margin-bottom: 15px; /* Space between journal entries */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+}
+
+/* Styles for the date within each journal entry */
+.journal-entries li strong {
+    color: #1f5d81; /* Blue color */
+    display: block; /* Ensure the date is on a new line */
+    margin-bottom: 10px; /* Space below the date */
+}
+
+/* Styles for the content text of each journal entry */
+.journal-entries li p {
+    color: #555; /* Medium gray color */
+    line-height: 1.5; /* Adjust line height */
+    font-size: 1rem; /* Standard font size */
+}
+
+/* Image sizing */
+.journal-image {
+    padding: 10px;
+    width: 100%;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .card {
+        padding: 20px; /* Reduce padding */
+    }
+
+    textarea {
+        height: 80px; /* Decrease height of the textarea */
+    }
+
+    button {
+        padding: 10px 20px; /* Adjust button padding */
+    }
+}

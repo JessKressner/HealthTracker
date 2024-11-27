@@ -59,7 +59,21 @@ input[type="date"]:focus, textarea:focus {
   max-width: 1400px; 
   margin: 0 auto;
 }
+.dashboard-header {
+  width: 100%; 
+  text-align: center; 
+  padding: 20px; 
+  background-color: #f5f7fa; 
+  border-bottom: 2px solid #374785; 
+  margin-bottom: 20px; 
+}
 
+.dashboard-header h1 {
+  margin: 0;
+  font-size: 2.5rem; 
+  color: #374785; 
+  font-weight: bold; 
+}
 .sidebar {
   flex: 1; 
   background-color: #fff;
@@ -246,4 +260,34 @@ transition: border 0.3s ease;
 input:focus, textarea:focus {
 border-color: #3490c5;
 outline: none;
+}
+
+/* User Info */
+.user-info {
+  position: absolute;
+  top: 60px;
+  right: 50px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.username {
+  font-size: 14px;
+  color: #374785;
+}
+
+.logout-button {
+  padding: 8px 12px;
+  background-color: #66a3c6;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #1f5d81;
 }

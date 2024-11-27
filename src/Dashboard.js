@@ -6,6 +6,8 @@ import DietLog from './DietLog';
 import FitnessLog from './FitnessLog';
 import SleepTracker from './SleepTracker';
 import BeverageTracker from './BeverageTracker';
+import Journal from './Journal';
+import { useNavigate } from 'react-router-dom';
 import './Dashboard.css';
 
 function Dashboard() {
@@ -27,7 +29,6 @@ function Dashboard() {
     { activity: 'Running', duration: '30 mins', caloriesBurned: 300 },
     { activity: 'Cycling', duration: '20 mins', caloriesBurned: 150 },
   ]);
-
   // Sleep state
   const [sleep, setSleep] = useState([
     {timeFallAsleep:'', timeWakeUp:'', hours:''}
@@ -37,6 +38,7 @@ function Dashboard() {
   const [beverage, setBeverage] = useState([
     {name:'', ounces:''}
   ]);
+
 
   // Function to add a new meal
   const addMeal = (newMeal) => {
@@ -65,9 +67,46 @@ function Dashboard() {
 
   // Get the latest habit from fitness activities
   const latestHabit = fitnessActivities[fitnessActivities.length - 1]?.activity || '';
+  
+  
+  // Function to manage the list of journal entries. Empty array at first
+  const [journalEntries, setJournalEntries] = useState([]);
+
+  // Function to add a new journal entry to the list of entries.
+  const addJournalEntry = (entry) => {
+    // Update the state by adding the new entry to the existing list of journal entries.
+    setJournalEntries([...journalEntries, entry]); // The spread operator (...) is used to copy the current entries and append the new entry at the end.
+  };
+
+  const navigate = useNavigate();
+
+  // Retrieve the username from localStorage
+  const username = localStorage.getItem('currentUser');
+
+  // Logout handler
+  const handleLogout = () => {
+    // Clear authentication and user data from localStorage
+    localStorage.removeItem('isAuthenticated');
+    localStorage.removeItem('currentUser');
+    navigate('/login'); // Redirect to the login page
+  };
 
   return (
+    <>
+      {/* Title */}
+      <header className="dashboard-header">
+        <h1>Health AI - Wellness Tracker</h1>
+      </header>
+
     <div className="dashboard-container">
+      {/* Username and Logout Button */}
+      <div className="user-info">
+        <span className="username">Welcome, {username}!</span>
+        <button className="logout-button" onClick={handleLogout}>
+          Logout
+        </button>
+      </div>
+      
       {/* Left Section */}
       <aside className="sidebar">
         <DatePicker />
@@ -91,21 +130,12 @@ function Dashboard() {
       <aside className="sidebar-right">
         {/* Pass habitData, addHabitLog, and latest habit to MoodTracker */}
         <MoodTracker habitData={habitData} addHabitLog={addHabitLog} latestHabit={latestHabit} />
-
-        {/* Chatbot Embed */}
-        <div className="chatbot-container">
-          <iframe
-            src="https://cdn.botpress.cloud/webchat/v2.2/shareable.html?configUrl=https://files.bpcontent.cloud/2024/10/22/19/20241022195513-GDG8GCGS.json"
-            title="Chatbot"
-            width="400"
-            height="600"
-            style={{ border: 'none', borderRadius: '10px', margin: '20px' }}
-            allow="microphone"
-          ></iframe>
-        </div>
+        <Journal journalEntries={journalEntries} addJournalEntry={addJournalEntry} />
       </aside>
     </div>
+    </>
   );
 }
 
 export default Dashboard;
+

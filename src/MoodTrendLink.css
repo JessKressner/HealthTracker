@@ -114,3 +114,6 @@ body {
     }
   }
   
+  .google-visualization-table {
+    display: none !important;
+}
